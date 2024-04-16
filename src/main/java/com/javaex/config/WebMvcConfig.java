@@ -18,11 +18,26 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	}
 	
-	//파일 드라이브뒤지도록 하는 메소드
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	registry.addResourceHandler("/upload/**")// '/upload/'로 요청이 오면 C드라이블 뒤질 수 있도록 우리가 가상으로 만든거임.
-	.addResourceLocations("file:C:\\javaStudy\\upload\\");
+		//////fdfdsafasf////nnnff
+		String saveDir;
+		
+		String osName = System.getProperty("os.name").toLowerCase();
+		if (osName.contains("linux")) {
+        	System.out.println("리눅스");
+        	// 파일저장디렉토리
+        	saveDir = "/app/upload/"; // Linux 경로. username을 실제 사용자 이름으로 변경하세요.
+        
+		} else {
+        	System.out.println("윈도우");
+        	// 파일저장디렉토리 - 리눅스라면 여기 경로를 바꿔줘야함
+        	saveDir = "C:\\javaStudy\\upload\\";
+        }
+		
+		registry.addResourceHandler("/upload/**")
+		.addResourceLocations("file:"+saveDir);
+		
 	}
 
 }
