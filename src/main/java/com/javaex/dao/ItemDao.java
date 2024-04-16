@@ -36,8 +36,11 @@ public class ItemDao {
 		public List<ProductVo> selectIList(int no) {
 			System.out.println("ItemDao.selectIList");
 			
+			System.out.println("여기야1:"+ no);
 			List<ProductVo> iList = sqlSession.selectList("item.getIList", no);
 			
-			return iList ;
+			System.out.println("여기야2:" + iList);
+			
+			return iList;
 		}
 }

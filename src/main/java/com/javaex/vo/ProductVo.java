@@ -25,6 +25,21 @@ public class ProductVo {
 		this.scName = scName;
 		this.scNo = scNo;
 	}
+	
+	
+
+	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
+			String saveName, int best) {
+		super();
+		this.productNo = productNo;
+		this.scNo = scNo;
+		this.productName = productName;
+		this.price = price;
+		this.storage = storage;
+		this.detail = detail;
+		this.saveName = saveName;
+		this.best = best;
+	}
 
 	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
 			String saveName, int best, int mcNo, String mcName, String scName) {

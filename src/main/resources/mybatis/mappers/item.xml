@@ -25,15 +25,15 @@
 	<!-- 소분류별 아이템 리스트 불러오기 -->
 	<select id="getIList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
 		select productNo
+				,s.scNo
 				,productName
         		,price
         		,storage
         		,detail
         		,saveName
         		,best
-        		,s.scNo
 		from product p join scategory s
-		where s.scNo = #{no}
+		where s.scNo = #{no}+1
 		and p.scNo = s.scNo
 	</select>
 </mapper>
