@@ -10,13 +10,16 @@ public class ProductVo {
 	private String detail;
 	private String saveName;
 	private int best;
+	private int mcNo;
+	private String mcName;
+	private String scName;
 
 	public ProductVo() {
 		super();
 	}
 
 	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
-			String saveName, int best) {
+			String saveName, int best, int mcNo, String mcName, String scName) {
 		super();
 		this.productNo = productNo;
 		this.scNo = scNo;
@@ -26,6 +29,9 @@ public class ProductVo {
 		this.detail = detail;
 		this.saveName = saveName;
 		this.best = best;
+		this.mcNo = mcNo;
+		this.mcName = mcName;
+		this.scName = scName;
 	}
 
 	public int getProductNo() {
@@ -92,11 +98,37 @@ public class ProductVo {
 		this.best = best;
 	}
 
+	public int getMcNo() {
+		return mcNo;
+	}
+
+	public void setMcNo(int mcNo) {
+		this.mcNo = mcNo;
+	}
+
+	public String getMcName() {
+		return mcName;
+	}
+
+	public void setMcName(String mcName) {
+		this.mcName = mcName;
+	}
+
+	public String getScName() {
+		return scName;
+	}
+
+	public void setScName(String scName) {
+		this.scName = scName;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductVo [productNo=" + productNo + ", scNo=" + scNo + ", productName=" + productName + ", price="
 				+ price + ", storage=" + storage + ", detail=" + detail + ", saveName=" + saveName + ", best=" + best
-				+ "]";
+				+ ", mcNo=" + mcNo + ", mcName=" + mcName + ", scName=" + scName + "]";
 	}
+
+	
 
 }
