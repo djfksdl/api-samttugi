@@ -19,7 +19,6 @@ public class ManagerDao {
 		System.out.println("ManagerDao.bigCategoryList()");
 
 		List<ProductVo> bigCategoryList = sqlSession.selectList("manager.bigCategoryList");
-		System.out.println(bigCategoryList);
 
 		return bigCategoryList;
 	}

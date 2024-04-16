@@ -13,8 +13,8 @@
 	<!-- 카테고리-소분류 가져오기 -->
 	<select id="miniCategoryList" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[
-			select mcNo, mcName, scNo
-			from scategory
+			select s.scNo scNo, s.mcNo mcNo, s.scName scName, m.mcNo mcNo
+				from scategory s, mcategory m
 		]]>
 	</select>
 </mapper>

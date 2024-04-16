@@ -18,6 +18,14 @@ public class ProductVo {
 		super();
 	}
 
+	public ProductVo(int mcNo, String mcName, int scNo, String scName) {
+		super();
+		this.mcNo = mcNo;
+		this.mcName = mcName;
+		this.scName = scName;
+		this.scNo = scNo;
+	}
+
 	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
 			String saveName, int best, int mcNo, String mcName, String scName) {
 		super();
@@ -128,7 +136,5 @@ public class ProductVo {
 				+ price + ", storage=" + storage + ", detail=" + detail + ", saveName=" + saveName + ", best=" + best
 				+ ", mcNo=" + mcNo + ", mcName=" + mcName + ", scName=" + scName + "]";
 	}
-
-	
 
 }
