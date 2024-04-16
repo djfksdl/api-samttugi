@@ -3,6 +3,7 @@ package com.javaex.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.ProductVo;
@@ -10,9 +11,10 @@ import com.javaex.vo.ProductVo;
 @Repository
 public class ItemDao {
 	
+	@Autowired
 	private SqlSession sqlSession;
 
-	//카테고리별 아이템 리스트 불러오기
+	//대분류별 아이템 리스트 불러오기
 	public List<ProductVo> selectItemList(int no) {
 		System.out.println("ItemDao.selectItemList");
 		
@@ -20,4 +22,22 @@ public class ItemDao {
 		
 		return ItemList;
 	}
+	
+	//대분류별 소분류 목록 불러오기
+	public List<ProductVo> selectScList(int no) {
+		System.out.println("ItemDao.selectScList");
+		
+		List<ProductVo> scList = sqlSession.selectList("item.getScList", no);
+		
+		return scList;
+	}
+	
+	//소분류별 아이템 리스트 불러오기
+		public List<ProductVo> selectIList(int no) {
+			System.out.println("ItemDao.selectIList");
+			
+			List<ProductVo> iList = sqlSession.selectList("item.getIList", no);
+			
+			return iList ;
+		}
 }
