@@ -12,6 +12,6 @@ public class ItemDao {
 	public void selectItemList(int no) {
 		System.out.println("ItemDao.selectItemList");
 		
-		List<>sqlSession.selectList("item.getItemList", no);
+//		List<>sqlSession.selectList("item.getItemList", no);
 	}
 }
