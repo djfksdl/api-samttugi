@@ -1,5 +1,7 @@
 package com.javaex.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.ItemService;
 import com.javaex.util.JsonResult;
+import com.javaex.vo.ProductVo;
 
 @RestController
 public class ItemController {
@@ -19,8 +22,8 @@ public class ItemController {
 	public JsonResult getItemList(@RequestParam(value="no")int no) {
 		System.out.println("ItemController.getItemList");
 		
-		Itemservice.getItemList(no);
+		List<ProductVo> ItemList = Itemservice.getItemList(no);
 		
-		return JsonResult.success(no);
+		return JsonResult.success(ItemList);
 	}
 }
