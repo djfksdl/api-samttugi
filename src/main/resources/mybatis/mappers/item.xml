@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="item">
+	<!-- 대분류별 아이템 리스트 불러오기 -->
 	<select id="getItemList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
 		select productNo
 				,productName
@@ -11,5 +12,28 @@
         		,best
 				from product p join mcategory m
 		where m.mcNo = #{no}
+	</select>
+	
+	<!-- 대분류별 소분류 목록 불러오기기 -->
+	<select id="getScList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
+		select scNo
+        	  ,scName
+		from scategory
+		where mcNo=#{no}
+	</select>
+	
+	<!-- 소분류별 아이템 리스트 불러오기 -->
+	<select id="getIList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
+		select productNo
+				,productName
+        		,price
+        		,storage
+        		,detail
+        		,saveName
+        		,best
+        		,s.scNo
+		from product p join scategory s
+		where s.scNo = #{no}
+		and p.scNo = s.scNo
 	</select>
 </mapper>
