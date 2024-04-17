@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.ItemDao;
+import com.javaex.vo.CartVo;
 import com.javaex.vo.ProductVo;
 
 @Service
@@ -34,12 +35,29 @@ public class ItemService {
 	}
 	
 	//전체 눌렀을때 아이템 리스트 받기
-		public List<ProductVo> getAllIList(int no) {
-			System.out.println("ItemService.getAllIList");
-			
-			List<ProductVo> iList = itemDao.selectAllIList(no);
-			
-			return iList;
-		}
+	public List<ProductVo> getAllIList(int no) {
+		System.out.println("ItemService.getAllIList");
+		
+		List<ProductVo> iList = itemDao.selectAllIList(no);
+		
+		return iList;
+	}
+		
+	//한 아이템 선택해서 아이템 정보 받기
+	public ProductVo getItemInfo(int no) {
+		System.out.println("ItemService.getItemInfo");
+		
+		ProductVo pVo =itemDao.selectItem(no);
+		
+		return pVo;
+	}
+	
+	//장바구니로 보내기
+	public void exeGoCart(CartVo cartVo) {
+		System.out.println("ItemService.exeGoCart");
+		
+		itemDao.insertItemtoCart(cartVo);
+		
+	}
 	
 }

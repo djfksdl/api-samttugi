@@ -4,14 +4,17 @@
 
 	<!-- 대분류별 소분류 목록 불러오기기 -->
 	<select id="getScList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
+		<![CDATA[
 		select scNo
         	  ,scName
 		from scategory
 		where mcNo=#{no}
+		]]>
 	</select>
 		
 	<!-- 소분류별 아이템 리스트 불러오기 -->
 	<select id="getIList" parameterType="com.javaex.vo.ProductVo" resultType="com.javaex.vo.ProductVo" >
+		<![CDATA[
 		select productNo
 				,s.scNo
 		        ,m.mcNo
@@ -26,10 +29,12 @@
 		join mcategory m on m.mcNo = s.mcNo
 		where s.scNo = #{scNo}
 		and m.mcNo=#{mcNo}
+		]]>
 	</select>
 	
 	<!-- 전체 눌렀을때 아이템 리스트 받기 -->
 	<select id="getAllIList" parameterType="int" resultType="com.javaex.vo.ProductVo" >
+		<![CDATA[
 		select productNo
 				,productName
         		,price
@@ -40,5 +45,27 @@
 		from product p join scategory s on p.scNo = s.scNo
 					   join mcategory m on  m.mcNo = s.mcNo
 		where m.mcNo = #{no}
+		]]>
 	</select> 
+	
+	<!-- 한 아이템 선택해서 아이템 정보 받기 -->
+	<select id="selectOne" parameterType="int" resultType="com.javaex.vo.ProductVo" >
+		<![CDATA[
+		select productNo
+				,productName
+				,price
+				,storage
+				,detail
+				,saveName
+		from product
+		where productNo = #{no}
+		]]>
+	</select> 
+	<!-- 장바구니로 보내기 -->
+	<insert id="insertToCart" parameterType="com.javaex.vo.CartVo">
+		<![CDATA[
+			insert into cart
+			values(#{userNo},#{productNo},#{cCount})
+		]]>
+	</insert>
 </mapper>

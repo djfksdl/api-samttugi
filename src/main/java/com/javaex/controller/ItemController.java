@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.ItemService;
 import com.javaex.util.JsonResult;
+import com.javaex.vo.CartVo;
 import com.javaex.vo.ProductVo;
 
 @RestController
@@ -50,6 +53,26 @@ public class ItemController {
 		List<ProductVo> iList = Itemservice.getAllIList(no);
 		
 		return JsonResult.success(iList);
+	}
+	
+	//한 아이템 선택해서 아이템 정보 받기
+	@GetMapping("/api/itemInfoBypNo")
+	public JsonResult itemInfoBypNo(@RequestParam(value="no") int no) {
+		System.out.println("ItemController.itemInfoBypNo");
+
+		ProductVo pVo = Itemservice.getItemInfo(no);
+		
+		return JsonResult.success(pVo);
+	}
+	
+	//장바구니로 보내기
+	@PostMapping("/api/goCart")
+	public JsonResult goCart(@RequestBody CartVo cartVo) {
+		System.out.println("ItemController.goCart");
+
+		Itemservice.exeGoCart(cartVo);
+		
+		return JsonResult.success("얏호");
 	}
 	
 	
