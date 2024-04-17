@@ -53,4 +53,14 @@ public class ManagerDao {
 		return miniCategoryList;
 	}
 
+	
+	//소분류별 아이템 리스트 불러오기
+	public List<ProductVo> selectIList(int no) {
+		System.out.println("ManagerDao.selectIList");
+		
+		List<ProductVo> nList = sqlSession.selectList("manager.getIList", no);
+		
+		
+		return nList;
+	}
 }

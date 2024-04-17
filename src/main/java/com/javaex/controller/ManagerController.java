@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,6 +60,20 @@ public class ManagerController {
 
 		return JsonResult.success(miniCategoryList);
 	}
+	
+	
+	// 카테고리별 리스트 받기
+		@GetMapping("/api/getCategoryList")
+		public JsonResult getIList(@RequestParam(value = "mcNo") int no) {
+			System.out.println("ManagerController.getIList");
+			
+			System.out.println(no);
+			
+			List<ProductVo> nList = managerService.getIList(no);
+			
+			return JsonResult.success(nList);
+		}
+		
 
 
 }

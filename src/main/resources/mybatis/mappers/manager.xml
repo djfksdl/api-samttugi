@@ -11,8 +11,26 @@
 	</select>
 
 
+	<select id="getIList" parameterType="com.javaex.vo.ProductVo" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+select productNo
+				,s.scNo
+		        ,m.mcNo
+				,productName
+				,price
+				,storage
+				,detail
+				,saveName
+				,best
+		from product p 
+		join scategory s on p.scNo = s.scNo
+		join mcategory m on m.mcNo = s.mcNo
+        where m.mcNo=#{m.mcNo};
+		]]>
+	</select>
 
-	
+
+
 
 	<select id="prodcutSelectList" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[

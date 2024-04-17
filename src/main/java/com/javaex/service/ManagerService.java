@@ -51,5 +51,15 @@ public class ManagerService {
 
 		return miniCategoryList;
 	}
+	
+	
+	//카테고리별 리스트 받기 
+	public List<ProductVo> getIList(int no) {
+		System.out.println("ItemService.getIList");
+		
+		List<ProductVo> nList = managerDao.selectIList(no);
+		
+		return nList;
+	}
 
 }
