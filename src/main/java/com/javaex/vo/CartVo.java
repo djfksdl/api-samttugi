@@ -16,6 +16,11 @@ public class CartVo {
 	public CartVo(int productNo) {
 		this.productNo = productNo;
 	}
+	
+	public CartVo(int productNo, int cCount) {
+		this.productNo = productNo;
+		this.cCount = cCount;
+	}
 
 	public CartVo(int userNo, int productNo, int cCount) {
 		this.userNo = userNo;

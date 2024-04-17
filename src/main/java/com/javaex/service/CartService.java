@@ -15,6 +15,14 @@ public class CartService {
 	private CartDao cartDao;
 
 	
+	//수량 수정
+	public void exeCountUpdate(CartVo cartVo) {
+		System.out.println("CartService.exeCountUpdate()");
+		
+		cartDao.countUpdate(cartVo);
+		
+	}
+	
 	//삭제
 	public void exeDelete(CartVo cartVo) {
 		System.out.println("CartService.exeDelete()");

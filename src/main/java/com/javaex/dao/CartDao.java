@@ -14,6 +14,11 @@ public class CartDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//수량 수정
+	public void countUpdate(CartVo cartVo) {
+		sqlSession.update("cart.countUpdate", cartVo);
+	}
+	
 	//삭제
 	public void cartDelete(CartVo cartVo) {
 		System.out.println("CartDao.cartDelete()");

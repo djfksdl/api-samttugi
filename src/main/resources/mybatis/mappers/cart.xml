@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cart">
 
+	<!-- 회원정보수정 -->
+	<update id="countUpdate" parameterType="com.javaex.vo.CartVo">
+		<![CDATA[ 
+			update cart
+			set cCount = #{cCount}
+			where productNo = #{productNo} 
+		]]>
+	</update>
+
 	<!-- 장바구니 삭제 -->
 	<delete id="cartDelete" parameterType="com.javaex.vo.CartVo">
 	<![CDATA[
