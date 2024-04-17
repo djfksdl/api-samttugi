@@ -24,13 +24,22 @@ public class ManagerDao {
 	}
 	
 	// 카테고리 - 소분류
-		public List<ProductVo> miniCategoryList() {
+		public List<ProductVo> miniCategoryList(int no) {
 			System.out.println("ManagerDao.miniCategoryList()");
 
-			List<ProductVo> miniCategoryList = sqlSession.selectList("manager.miniCategoryList");
-			System.out.println(miniCategoryList);
+			List<ProductVo> miniCategoryList = sqlSession.selectList("manager.miniCategoryList",no);
 
 			return miniCategoryList;
+		}
+		
+		//등록
+		public int productInsert(ProductVo productVo) {
+			System.out.println("ManagerDao.productInsert");
+			System.out.println(productVo);
+			
+			int count = sqlSession.insert("manager.insert",productVo);
+				
+			return count;
 		}
 	
 }

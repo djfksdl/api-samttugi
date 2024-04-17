@@ -14,8 +14,17 @@
 	<select id="miniCategoryList" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[
 			select s.scNo scNo, s.mcNo mcNo, s.scName scName, m.mcNo mcNo
-			from scategory s, mcategory m where s.mcNo=m.mcNo
+			from scategory s, mcategory m 
+			where s.mcNo=m.mcNo and m.mcNo=#{mcNo}
 			
 		]]>
 	</select>
+	
+	<!-- 등록 -->
+	<insert id="insert" parameterType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			insert into product values(null, #{scNo},#{productName},#{price},#{storeage},#{detail},'17131493630071bd727d6-a394-469a-b229-9dff12c28d18.jpg',#{best});
+		]]>
+	
+	</insert>
 </mapper>
