@@ -13,33 +13,34 @@ public class ItemDao {
 	
 	@Autowired
 	private SqlSession sqlSession;
-
-	//대분류별 아이템 리스트 불러오기
-	public List<ProductVo> selectItemList(int no) {
-		System.out.println("ItemDao.selectItemList");
-		
-		List<ProductVo> ItemList = sqlSession.selectList("item.getItemList", no);
-		
-		return ItemList;
-	}
 	
 	//대분류별 소분류 목록 불러오기
-	public List<ProductVo> selectScList(int no) {
-		System.out.println("ItemDao.selectScList");
-		
-		List<ProductVo> scList = sqlSession.selectList("item.getScList", no);
-		
-		return scList;
-	}
+		public List<ProductVo> selectScList(int no) {
+			System.out.println("ItemDao.selectScList");
+			
+			List<ProductVo> scList = sqlSession.selectList("item.getScList", no);
+			
+			return scList;
+		}
+	
+	
 	
 	//소분류별 아이템 리스트 불러오기
-		public List<ProductVo> selectIList(int no) {
+		public List<ProductVo> selectIList(ProductVo cNoVo) {
 			System.out.println("ItemDao.selectIList");
 			
-			System.out.println("여기야1:"+ no);
-			List<ProductVo> iList = sqlSession.selectList("item.getIList", no);
+			List<ProductVo> iList = sqlSession.selectList("item.getIList", cNoVo);
 			
 			System.out.println("여기야2:" + iList);
+			
+			return iList;
+		}
+		
+	//전체 눌렀을때 아이템 리스트 받기
+		public List<ProductVo> selectAllIList(int no) {
+			System.out.println("ItemDao.selectAllIList");
+			
+			List<ProductVo> iList = sqlSession.selectList("item.getAllIList", no);
 			
 			return iList;
 		}

@@ -14,31 +14,32 @@ public class ItemService {
 	@Autowired
 	private ItemDao itemDao;
 	
-	//대분류별 아이템 리스트 불러오기
-	public List<ProductVo> getItemList(int no) {
-		System.out.println("ItemService.getItemList");
-		
-		List<ProductVo> ItemList = itemDao.selectItemList(no);
-		
-		return ItemList;
-	}
-	
 	//대분류별 소분류 목록 불러오기 
-	public List<ProductVo> getScList(int no) {
-		System.out.println("ItemService.getScList");
-		
-		List<ProductVo> scList = itemDao.selectScList(no);
-		
-		return scList;
-	}
+		public List<ProductVo> getScList(int no) {
+			System.out.println("ItemService.getScList");
+			
+			List<ProductVo> scList = itemDao.selectScList(no);
+			
+			return scList;
+		}
+	
 		
 	//소분류별 아이템 리스트 받기 
-	public List<ProductVo> getIList(int no) {
+	public List<ProductVo> getIList(ProductVo cNoVo) {
 		System.out.println("ItemService.getIList");
 		
-		List<ProductVo> iList = itemDao.selectIList(no);
+		List<ProductVo> iList = itemDao.selectIList(cNoVo);
 		
 		return iList;
 	}
+	
+	//전체 눌렀을때 아이템 리스트 받기
+		public List<ProductVo> getAllIList(int no) {
+			System.out.println("ItemService.getAllIList");
+			
+			List<ProductVo> iList = itemDao.selectAllIList(no);
+			
+			return iList;
+		}
 	
 }
