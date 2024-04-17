@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
 
+   <!-- order - select user info -->
+   <select id="OrderSelectUserInfo" resultType="com.javaex.vo.UsersVo" parameterType="int">
+      <![CDATA[
+         select userName,
+            	hp,
+            	email,
+            	address
+         from users 
+         where userNo = #{no}
+      ]]>
+   </select>
+
    <!-- 회원가입 -->
    <insert id="join" parameterType="com.javaex.vo.UsersVo">
       <![CDATA[

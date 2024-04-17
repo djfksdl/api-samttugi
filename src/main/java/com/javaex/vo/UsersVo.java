@@ -17,7 +17,18 @@ public class UsersVo {
    public UsersVo() {
       
    }
-   public UsersVo(int userNo, String id, String userName, String password, String hp, String email, String gender,
+   
+   
+   public UsersVo(String userName, String hp, String email, String address) {
+	super();
+	this.userName = userName;
+	this.hp = hp;
+	this.email = email;
+	this.address = address;
+}
+
+
+public UsersVo(int userNo, String id, String userName, String password, String hp, String email, String gender,
          String birth, String address) {
       
       this.userNo = userNo;

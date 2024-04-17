@@ -14,6 +14,7 @@ public class CartDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
 	//수량 수정
 	public void countUpdate(CartVo cartVo) {
 		sqlSession.update("cart.countUpdate", cartVo);
@@ -27,11 +28,11 @@ public class CartDao {
 	}
 	
 	
-	//리스트
-	public List<CartVo> selectList() {
+	//장바구니 리스트
+	public List<CartVo> selectList(int no) {
 		System.out.println("CartDao.selectList()");
 		
-		List<CartVo> cList = sqlSession.selectList("cart.selectList");
+		List<CartVo> cList = sqlSession.selectList("cart.selectList", no);
 		
 		return cList;
 	}

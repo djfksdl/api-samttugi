@@ -32,10 +32,10 @@ public class CartService {
 	
 	
 	//리스트
-	public List<CartVo> exeList() {
+	public List<CartVo> exeList(int no) {
 		System.out.println("CartService.exeList()");
 		
-		List<CartVo> cList = cartDao.selectList();
+		List<CartVo> cList = cartDao.selectList(no);
 	
 		return cList;
 	}

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.CartService;
@@ -43,10 +44,10 @@ public class CartController {
 	
 	//리스트
 	@GetMapping("/api/cart/list")
-	public JsonResult list() {
+	public JsonResult list(@RequestParam(value="no") int no) {
 		System.out.println("CartController.list()");
 		
-		List<CartVo> cList = cartService.exeList();
+		List<CartVo> cList = cartService.exeList(no);
 		System.out.println(cList);
 		
 		return JsonResult.success(cList);
