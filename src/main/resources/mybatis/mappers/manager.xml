@@ -2,6 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="manager">
 
+	<select id="selectCategory" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			select mcNo
+	  			  ,mcName
+			from mcategory
+		]]>
+	</select>
+
+
+
+	
+
+	<select id="prodcutSelectList" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			select saveName
+				  ,productNo
+				  ,detail
+	  			  ,productName
+	  			  ,price
+	  			  ,storage
+	  			  ,best
+			from product
+		]]>
+	</select>
+
 	<!-- 카테고리-대분류 가져오기 -->
 	<select id="bigCategoryList" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[
@@ -9,7 +34,7 @@
 			from mcategory
 		]]>
 	</select>
-	
+
 	<!-- 카테고리-소분류 가져오기 -->
 	<select id="miniCategoryList" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[
@@ -19,12 +44,8 @@
 			
 		]]>
 	</select>
-	
-	<!-- 등록 -->
-	<insert id="insert" parameterType="com.javaex.vo.ProductVo">
-		<![CDATA[
-			insert into product values(null, #{scNo},#{productName},#{price},#{storeage},#{detail},'17131493630071bd727d6-a394-469a-b229-9dff12c28d18.jpg',#{best});
-		]]>
-	
-	</insert>
+
+
+
+
 </mapper>

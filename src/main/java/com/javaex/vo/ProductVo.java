@@ -17,6 +17,7 @@ public class ProductVo {
 	public ProductVo() {
 		super();
 	}
+	
 
 	public ProductVo(int mcNo, String mcName, int scNo, String scName) {
 		super();
@@ -25,7 +26,6 @@ public class ProductVo {
 		this.scName = scName;
 		this.scNo = scNo;
 	}
-	
 	
 
 	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
@@ -144,6 +144,10 @@ public class ProductVo {
 	public void setScName(String scName) {
 		this.scName = scName;
 	}
+	
+	
+
+	
 
 	@Override
 	public String toString() {
