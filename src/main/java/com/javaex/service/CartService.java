@@ -14,6 +14,16 @@ public class CartService {
 	@Autowired
 	private CartDao cartDao;
 
+	
+	//삭제
+	public void exeDelete(CartVo cartVo) {
+		System.out.println("CartService.exeDelete()");
+		
+		cartDao.cartDelete(cartVo);
+	}
+	
+	
+	//리스트
 	public List<CartVo> exeList() {
 		System.out.println("CartService.exeList()");
 		

@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cart">
 
-	<!-- 카테고리 가져오기 -->
+	<!-- 장바구니 삭제 -->
+	<delete id="cartDelete" parameterType="com.javaex.vo.CartVo">
+	<![CDATA[
+		delete from cart
+		where productNo = #{productNo}
+	]]>
+	</delete>
+
+
+
+	<!-- 장바구니 불러오기 -->
+	<select id="selectList" resultType="com.javaex.vo.CartVo">
+	<![CDATA[
+		select  c.cCount,
+				c.productNo,
+				p.saveName,
+				p.productName,
+				p.price
+		from cart c join product p on c.productNo = p.productNo
+		where c.userNo = 1
+	]]>
+	</select>
 
 </mapper>
