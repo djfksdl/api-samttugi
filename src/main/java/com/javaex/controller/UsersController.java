@@ -62,7 +62,7 @@ public class UsersController {
 		}
 	}
 
-	// 회원가입/test
+	// 회원가입/finaltest
 	@PostMapping("/api/user/join")
 	public int join(@RequestBody UsersVo usersVo) {
 		System.out.println("UsersController.join()");
