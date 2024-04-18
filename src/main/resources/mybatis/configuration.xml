@@ -10,5 +10,8 @@
 		<mapper resource="mybatis/mappers/manager.xml" />  
 		<mapper resource="mybatis/mappers/item.xml" />  
 		<mapper resource="mybatis/mappers/cart.xml" />  
+		<mapper resource="mybatis/mappers/orderList.xml" /> 
+		<mapper resource="mybatis/mappers/orders.xml" /> 
+		<mapper resource="mybatis/mappers/orderCheck.xml" /> 
 	</mappers>
 </configuration>
