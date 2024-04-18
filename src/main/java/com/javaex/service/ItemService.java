@@ -1,6 +1,8 @@
 package com.javaex.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,18 @@ public class ItemService {
 	private ItemDao itemDao;
 	
 	//대분류별 소분류 목록 불러오기 
-		public List<ProductVo> getScList(int no) {
+		public Map<String, Object> getScList(int no) {
 			System.out.println("ItemService.getScList");
 			
 			List<ProductVo> scList = itemDao.selectScList(no);
+			//대분류 no로 name가져오기
+			String mcName =itemDao.selectMcName(no);
 			
-			return scList;
+			Map<String, Object> mcsc = new HashMap<String , Object>();
+			mcsc.put("scList", scList);
+			mcsc.put("mcName", mcName);
+			
+			return mcsc;
 		}
 	
 		

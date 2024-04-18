@@ -34,7 +34,7 @@
 			        ,saveName
 			from orders o ,orderlist l
 			join product p on p.productNo = l.productNo
-			where and payDay = #{payDay}
+			where payDay = #{payDay}
 		]]>
 	</select>
 </mapper>

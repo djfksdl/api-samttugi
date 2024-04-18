@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +29,9 @@ public class ItemController {
 			
 			System.out.println(no);
 			
-			List<ProductVo> scList = Itemservice.getScList(no);
+			Map<String, Object> mcsc = Itemservice.getScList(no);
 			
-			return JsonResult.success(scList);
+			return JsonResult.success(mcsc);
 		}
 	
 	//소분류별 아이템 리스트 받기

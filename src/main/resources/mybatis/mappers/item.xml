@@ -11,6 +11,15 @@
 		where mcNo=#{no}
 		]]>
 	</select>
+	
+	<!-- 대분류 no로 name가져오기 -->
+	<select id="getMcName" parameterType="int" resultType="String" >
+		<![CDATA[
+		select mcName
+		from mcategory
+		where mcNo=#{no}
+		]]>
+	</select>
 		
 	<!-- 소분류별 아이템 리스트 불러오기 -->
 	<select id="getIList" parameterType="com.javaex.vo.ProductVo" resultType="com.javaex.vo.ProductVo" >

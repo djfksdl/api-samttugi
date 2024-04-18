@@ -23,6 +23,14 @@ public class ItemDao {
 			
 			return scList;
 		}
+		//대분류 no로 name가져오기
+		public String selectMcName(int no) {
+			System.out.println("ItemDao.selectMcName");
+			
+			String mcName = sqlSession.selectOne("item.getMcName", no);
+			
+			return mcName;
+		}
 	
 	
 	
@@ -30,6 +38,7 @@ public class ItemDao {
 		public List<ProductVo> selectIList(ProductVo cNoVo) {
 			System.out.println("ItemDao.selectIList");
 			
+			System.out.println("여기야1:" + cNoVo);
 			List<ProductVo> iList = sqlSession.selectList("item.getIList", cNoVo);
 			
 			System.out.println("여기야2:" + iList);
