@@ -7,7 +7,7 @@ public class ProductVo {
 	private int productNo;
 	private int scNo;
 	private String productName;
-	private int price;
+	private int price ;
 	private String storage;
 	private String detail;
 	private String saveName;
