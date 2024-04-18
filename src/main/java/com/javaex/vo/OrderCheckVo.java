@@ -3,7 +3,7 @@ package com.javaex.vo;
 public class OrderCheckVo {
 
 	//생성자
-	private int orderNo;
+	private int orderNo ;
 	private int userNo;
 	private String payment;
 	private String payDay;
