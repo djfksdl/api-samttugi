@@ -3,6 +3,14 @@
 <mapper namespace="cart">
 
 
+	<!-- 주문한 상품 장바구니에서 삭제 -->
+	<delete id="deleteOrder" parameterType="int">
+	<![CDATA[
+		delete from cart
+		where userNo = #{userNo}
+	]]>
+	</delete>
+
 	<!-- 주문결제 상품리스트 불러오기 -->
 	<select id="selectOrderList" parameterType="int" resultType="com.javaex.vo.CartVo">
 	<![CDATA[

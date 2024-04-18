@@ -2,5 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orderList">
 
+   <!--  -->
+   <insert id="insert" parameterType="com.javaex.vo.CartVo">
+      <![CDATA[
+      	insert into orderList
+		values(null, #{orderNo}, #{productNo}, #{cCount}, #{price})
+      ]]>
+   </insert>
 	
 </mapper>
