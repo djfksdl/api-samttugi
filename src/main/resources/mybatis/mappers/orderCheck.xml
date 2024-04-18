@@ -11,8 +11,30 @@
 			        ,payDay
 			        ,request
 			        ,oderListNo
+			        ,oPrice
+			        ,productName
+			        ,saveName
 			from orders o ,orderlist l
-			where o.userNo=#{no}
+			join product p on p.productNo = l.productNo
+			where userNo=#{no}
+		]]>
+	</select>
+	
+	<!-- 날짜별로 결제내역 가져오기 -->
+	<select id="orderCheckListByDay" parameterType="String" resultType="com.javaex.vo.OrderCheckVo">
+		<![CDATA[
+			select o.orderNo
+					,userNo
+			        ,payment
+			        ,payDay
+			        ,request
+			        ,oderListNo
+			        ,oPrice
+			        ,productName
+			        ,saveName
+			from orders o ,orderlist l
+			join product p on p.productNo = l.productNo
+			where and payDay = #{payDay}
 		]]>
 	</select>
 </mapper>

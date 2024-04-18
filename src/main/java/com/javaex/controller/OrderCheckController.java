@@ -27,4 +27,15 @@ public class OrderCheckController {
 		
 		return JsonResult.success(ocList);
 	}
+	
+	//날짜별로 결제내역 가져오기
+	@GetMapping("/api/findByDate")
+	public JsonResult findByDate(@RequestParam(value="selectedDate")String payDay) {
+		System.out.println("OrderCheckController.findByDate");
+		
+		List<OrderCheckVo> odList = orderCheckService.exeGetOrderedListByDate(payDay);
+		
+		
+		return JsonResult.success(odList);
+	}
 }

@@ -9,13 +9,16 @@ public class OrderCheckVo {
 	private String payDay;
 	private String request;
 	private int oderListNo;
+	private int oPrice;
+	private String saveName;
+	private String productName;
 	
 	//필드
 	public OrderCheckVo() {
 		super();
 	}
 
-	public OrderCheckVo(int orderNo, int userNo, String payment, String payDay, String request, int oderListNo) {
+	public OrderCheckVo(int orderNo, int userNo, String payment, String payDay, String request, int oderListNo, int oPrice, String saveName, String productName) {
 		super();
 		this.orderNo = orderNo;
 		this.userNo = userNo;
@@ -23,6 +26,9 @@ public class OrderCheckVo {
 		this.payDay = payDay;
 		this.request = request;
 		this.oderListNo = oderListNo;
+		this.oPrice = oPrice;
+		this.saveName = saveName;
+		this.productName = productName;
 	}
 	
 	//메소드-gs
@@ -74,13 +80,46 @@ public class OrderCheckVo {
 		this.oderListNo = oderListNo;
 	}
 	
+	public int getoPrice() {
+		return oPrice;
+	}
+
+	public void setoPrice(int oPrice) {
+		this.oPrice = oPrice;
+	}
+	
+	public String getSaveName() {
+		return saveName;
+	}
+
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	
 	//메소드-일반
 	@Override
 	public String toString() {
 		return "OrderCheckVo [orderNo=" + orderNo + ", userNo=" + userNo + ", payment=" + payment + ", payDay=" + payDay
-				+ ", request=" + request + ", oderListNo=" + oderListNo + "]";
+				+ ", request=" + request + ", oderListNo=" + oderListNo + ", oPrice=" + oPrice + ", saveName="
+				+ saveName + ", productName=" + productName + "]";
 	}
+
+	
+	
+
+
+
+
+	
+	
 	
 
 	

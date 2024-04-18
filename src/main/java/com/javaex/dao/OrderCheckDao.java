@@ -22,5 +22,15 @@ public class OrderCheckDao {
 		
 		return ocList;
 	}
+	
+	//날짜별로 결제내역 가져오기
+	public List<OrderCheckVo> selectOrderListByDate(String payDay) {
+		System.out.println("orderCheckDao.selectOrderListByDate");
+		
+		List<OrderCheckVo> odList =sqlSession.selectList("orderCheck.orderCheckListByDay",payDay);
+		
+		
+		return odList;
+	}
 
 }
