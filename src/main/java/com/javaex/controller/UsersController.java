@@ -3,6 +3,7 @@ package com.javaex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,10 +39,30 @@ public class UsersController {
 
 	}
 
-	// 로그인 후 로그인 성공한 멤버 페이지(1명 데이터 가져오기)
-	@GetMapping(value = "/api/user/loginsuccess")
-	public JsonResult afterlogin(HttpServletRequest request) {
-		System.out.println("UsersController.afterlogin()");
+	// 회원가입
+	@PostMapping("/api/user/join")
+	public int join(@RequestBody UsersVo usersVo) {
+		System.out.println("UsersController.join()");
+		int count = usersService.exeJoin(usersVo);
+		return count;
+	}
+
+	// 아이디 중복체크
+	@PostMapping("/api/user/idcheck")
+	public int idCheck(@RequestBody UsersVo usersVo) {
+		System.out.println("UsersController.idCheck()");
+		System.out.println(usersVo);
+
+		String id = usersVo.getId();
+		System.out.println(id);
+		int count = usersService.exeCheck(id);
+		return count;
+	}
+
+	// 수정폼(1명 데이터 가져오기)
+	@GetMapping(value = "/api/user/modify")
+	public JsonResult modifyform(HttpServletRequest request) {
+		System.out.println("UsersController.modifyform()");
 
 		// JWT 토큰에서 no 값을 추출
 		int no = JwtUtil.getNoFromHeader(request);
@@ -52,22 +73,28 @@ public class UsersController {
 		// System.out.println("token=" + token);
 
 		// 토큰을 사용하여 사용자 인증 및 회원 정보 가져오기
-		if (no != -1) {
-			UsersVo userInfo = usersService.exeUserName(no);
-			System.out.println(userInfo);
-			return JsonResult.success(userInfo);
+		UsersVo usersVo = usersService.exeModifyForm(no);
+
+		return JsonResult.success(usersVo);
+
+	}
+
+	// 회원정보 수정
+	@PutMapping("/api/user/modify")
+	public JsonResult modifyMember(@RequestBody UsersVo usersVo, HttpServletRequest request) {
+		System.out.println("UsersController.modifyMember()");
+
+		// JWT 토큰에서 no 값을 추출
+		int no = JwtUtil.getNoFromHeader(request);
+		// int no = memberVo.getNo();
+		System.out.println(no);
+		if (no != -1) { // 정상
+			usersService.exeModify(usersVo);
+			return JsonResult.success(usersVo);
 		} else {
 			// 토큰이 없거나(로그인상태 아님) 변조된 경우
 			return JsonResult.fail("fail");
 		}
-	}
-
-	// 회원가입/finaltest
-	@PostMapping("/api/user/join")
-	public int join(@RequestBody UsersVo usersVo) {
-		System.out.println("UsersController.join()");
-		int count = usersService.exeJoin(usersVo);
-		return count;
 	}
 
 }

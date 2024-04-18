@@ -9,29 +9,45 @@ import com.javaex.vo.UsersVo;
 @Service
 public class UsersService {
 
-   @Autowired
-   private UsersDao usersDao;
+	@Autowired
+	private UsersDao usersDao;
 
-   // 로그인
-   public UsersVo exeLogin(UsersVo usersVo) {
-      System.out.println("UsersService.exeLogin()");
-      UsersVo authUser = usersDao.usersSelectByIdPw(usersVo);
-      return authUser;
-   }
+	// 로그인
+	public UsersVo exeLogin(UsersVo usersVo) {
+		System.out.println("UsersService.exeLogin()");
+		UsersVo authUser = usersDao.usersSelectByIdPw(usersVo);
+		return authUser;
+	}
 
-   // 로그인 후 로그인 성공한 멤버 페이지(getName)
-   public UsersVo exeUserName(int userNo) {
-      System.out.println("UsersService.exeUserName()");
+	// 회원가입
+	public int exeJoin(UsersVo usersVo) {
+		System.out.println("UsersService.exeJoin()");
+		int count = usersDao.join(usersVo);
+		return count;
+	}
 
-      UsersVo usersVo = usersDao.userSelectOneByNo(userNo);
-      return usersVo;
-   }
+	// id 중복체크용
+	public int exeCheck(String id) {
+		System.out.println("UsersService.exeCheck()");
+		int count = usersDao.check(id);
+		return count;
+	}
 
-   // 회원가입
-   public int exeJoin(UsersVo usersVo) {
-      System.out.println("UsersService.exeJoin()");
-      int count = usersDao.join(usersVo);
-      return count;
-   }
+	// 회원정보 수정폼
+	public UsersVo exeModifyForm(int userNo) {
+		System.out.println("UsersService.exeModifyForm()");
+		System.out.println(userNo);
+		UsersVo usersVo = usersDao.userSelectOneByNo(userNo);
+		return usersVo;
+	}
+
+	// 회원정보 수정
+	public int exeModify(UsersVo usersVo) {
+		System.out.println("UsersService.exeModify()");
+
+		int count = usersDao.memberUpdate(usersVo);
+		System.out.println(usersVo);
+		return count;
+	}
 
 }

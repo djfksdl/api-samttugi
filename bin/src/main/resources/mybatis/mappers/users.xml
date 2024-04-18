@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
-	<!-- 쿼리문작성 -->
+
+   <!-- order - select user info -->
+   <select id="OrderSelectUserInfo" resultType="com.javaex.vo.UsersVo" parameterType="int">
+      <![CDATA[
+         select userName,
+            	hp,
+            	email,
+            	address
+         from users 
+         where userNo = #{no}
+      ]]>
+   </select>
+
+   <!-- 회원가입 -->
+   <insert id="join" parameterType="com.javaex.vo.UsersVo">
+      <![CDATA[
+         insert into users
+         values(null, #{id}, #{userName}, #{password}, #{hp}, #{email}, #{gender}, #{birth}, #{address})
+      ]]>
+   </insert>
+
+   <!-- 로그인 -->
+   <select id="selectByIdPw" resultType="com.javaex.vo.UsersVo" parameterType="com.javaex.vo.UsersVo">
+      <![CDATA[
+         select userNo,
+            id,
+            userName,
+            password,
+            hp,
+            email,
+            gender,
+            birth,
+            address
+         from users  
+         where id = #{id}
+         and password = #{password}
+      ]]>
+   </select>
+   
+   <!-- 로그인 성공(로그인 후 메인 화면) + 회원정보수정폼 -->
+   <select id="selectUserInfo" resultType="com.javaex.vo.UsersVo" parameterType="int">
+      <![CDATA[
+         select userNo,
+            id,
+            userName,
+            password,
+            hp,
+            email,
+            gender,
+            birth,
+            address
+         from users  
+         where userNo = #{userNo}
+      ]]>
+   </select>
 </mapper>

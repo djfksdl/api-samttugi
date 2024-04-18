@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+	<!-- 카테고리 가져오기 -->
+	<select id="prodcutSelectList" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			select saveName
+				  ,productNo
+				  ,detail
+	  			  ,productName
+	  			  ,price
+	  			  ,storage
+	  			  ,best
+			from product
+			limit 1,5
+		]]>
+	</select>
+</mapper>
