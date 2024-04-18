@@ -9,7 +9,8 @@
 		select  c.cCount,
 				p.saveName,
 				p.productName,
-				p.price
+				p.price,
+				p.productNo
 		from cart c join product p on c.productNo = p.productNo
 		where c.userNo = #{no};
 	]]>
