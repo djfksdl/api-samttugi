@@ -62,7 +62,14 @@ select productNo
 			
 		]]>
 	</select>
+	
+	<!-- 파일 업로드 -->
+	<insert id="insertUpload" parameterType="com.javaex.vo.ProductVo">
+		<![CDATA[ 
+		insert into product values(null,#{scNo},#{productName},#{price},#{storage},#{detail},#{saveName},#{best})
+		]]>
 
+	</insert>
 
 
 

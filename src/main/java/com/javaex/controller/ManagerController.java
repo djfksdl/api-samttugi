@@ -29,7 +29,7 @@ public class ManagerController {
 
 		return JsonResult.success(categoryList);
 	}
-	
+
 	// 관리자
 	@GetMapping("/api/manager")
 	public JsonResult getsamttugiList() {
@@ -60,20 +60,30 @@ public class ManagerController {
 
 		return JsonResult.success(miniCategoryList);
 	}
-	
-	
-	// 카테고리별 리스트 받기
-		@GetMapping("/api/getCategoryList")
-		public JsonResult getIList(@RequestParam(value = "mcNo") int no) {
-			System.out.println("ManagerController.getIList");
-			
-			System.out.println(no);
-			
-			List<ProductVo> nList = managerService.getIList(no);
-			
-			return JsonResult.success(nList);
-		}
-		
 
+	// 카테고리별 리스트 받기
+	@GetMapping("/api/getCategoryList")
+	public JsonResult getIList(@RequestParam(value = "mcNo") int no) {
+		System.out.println("ManagerController.getIList");
+
+		System.out.println(no);
+
+		List<ProductVo> nList = managerService.getIList(no);
+
+		return JsonResult.success(nList);
+	}
+
+	// 등록
+	@PostMapping("/api/insert")
+	public JsonResult upload(@ModelAttribute ProductVo productVo) {
+		System.out.println("ManagerController.upload");
+
+		System.out.println(productVo);
+		System.out.println(productVo.getFile().getOriginalFilename());
+
+		String savaName = managerService.exeUpload(productVo);
+
+		return JsonResult.success(savaName);
+	}
 
 }

@@ -27,4 +27,26 @@ public class MainController {
 		return JsonResult.success(productList);
 	}
 
+	// 오뚜기몰에서 만나요
+	@GetMapping("/api/samttugiList2")
+	public JsonResult getsamttugiList2() {
+		System.out.println("MainController.getsamttugiList2");
+
+		List<ProductVo> productList2 = mainService.exeProductList2();
+
+		System.out.println(productList2);
+		return JsonResult.success(productList2);
+	}
+
+	// 오뚜기몰에서 만나요
+	@GetMapping("/api/samttugiList3")
+	public JsonResult getsamttugiList3() {
+		System.out.println("MainController.getsamttugiList3");
+
+		List<ProductVo> productList3 = mainService.exeProductList3();
+
+		System.out.println(productList3);
+		return JsonResult.success(productList3);
+	}
+
 }

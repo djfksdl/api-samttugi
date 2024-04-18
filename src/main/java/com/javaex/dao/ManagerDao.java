@@ -24,7 +24,6 @@ public class ManagerDao {
 
 	}
 
-
 	// 전체리스트
 	public List<ProductVo> prodcutSelectList() {
 		System.out.println("ManagerDao.prodcutSelectList()");
@@ -53,14 +52,19 @@ public class ManagerDao {
 		return miniCategoryList;
 	}
 
-	
-	//소분류별 아이템 리스트 불러오기
+	// 소분류별 아이템 리스트 불러오기
 	public List<ProductVo> selectIList(int no) {
 		System.out.println("ManagerDao.selectIList");
-		
+
 		List<ProductVo> nList = sqlSession.selectList("manager.getIList", no);
-		
-		
+
 		return nList;
+	}
+
+	// 파일 업로드
+	public void saveFile(ProductVo productVo) {
+		System.out.println("ManagerDao.saveFile");
+
+		sqlSession.insert("manager.insertUpload", productVo);
 	}
 }

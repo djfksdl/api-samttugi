@@ -1,12 +1,14 @@
 package com.javaex.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductVo {
 
 	private int productNo;
 	private int scNo;
 	private String productName;
 	private int price;
-	private int storage;
+	private String storage;
 	private String detail;
 	private String saveName;
 	private int best;
@@ -14,10 +16,11 @@ public class ProductVo {
 	private String mcName;
 	private String scName;
 
+	private MultipartFile file;
+
 	public ProductVo() {
 		super();
 	}
-	
 
 	public ProductVo(int mcNo, String mcName, int scNo, String scName) {
 		super();
@@ -26,9 +29,8 @@ public class ProductVo {
 		this.scName = scName;
 		this.scNo = scNo;
 	}
-	
 
-	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
+	public ProductVo(int productNo, int scNo, String productName, int price, String storage, String detail,
 			String saveName, int best) {
 		super();
 		this.productNo = productNo;
@@ -41,8 +43,8 @@ public class ProductVo {
 		this.best = best;
 	}
 
-	public ProductVo(int productNo, int scNo, String productName, int price, int storage, String detail,
-			String saveName, int best, int mcNo, String mcName, String scName) {
+	public ProductVo(int productNo, int scNo, String productName, int price, String storage, String detail,
+			String saveName, int best, int mcNo, String mcName, String scName, MultipartFile file) {
 		super();
 		this.productNo = productNo;
 		this.scNo = scNo;
@@ -55,6 +57,7 @@ public class ProductVo {
 		this.mcNo = mcNo;
 		this.mcName = mcName;
 		this.scName = scName;
+		this.file = file;
 	}
 
 	public int getProductNo() {
@@ -89,11 +92,11 @@ public class ProductVo {
 		this.price = price;
 	}
 
-	public int getStorage() {
+	public String getStorage() {
 		return storage;
 	}
 
-	public void setStorage(int storage) {
+	public void setStorage(String storage) {
 		this.storage = storage;
 	}
 
@@ -144,16 +147,20 @@ public class ProductVo {
 	public void setScName(String scName) {
 		this.scName = scName;
 	}
-	
-	
 
-	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	@Override
 	public String toString() {
 		return "ProductVo [productNo=" + productNo + ", scNo=" + scNo + ", productName=" + productName + ", price="
 				+ price + ", storage=" + storage + ", detail=" + detail + ", saveName=" + saveName + ", best=" + best
-				+ ", mcNo=" + mcNo + ", mcName=" + mcName + ", scName=" + scName + "]";
+				+ ", mcNo=" + mcNo + ", mcName=" + mcName + ", scName=" + scName + ", file=" + file + "]";
 	}
 
 }
