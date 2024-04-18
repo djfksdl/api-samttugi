@@ -5,7 +5,14 @@
 	<!-- 카테고리 가져오기 -->
 	<select id="orderCheckList" parameterType="int" resultType="com.javaex.vo.OrderCheckVo">
 		<![CDATA[
-			
+			select o.orderNo
+					,userNo
+			        ,payment
+			        ,payDay
+			        ,request
+			        ,oderListNo
+			from orders o ,orderlist l
+			where o.userNo=#{no}
 		]]>
 	</select>
 </mapper>

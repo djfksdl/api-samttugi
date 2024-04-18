@@ -14,13 +14,13 @@ public class OrderCheckDao {
 	private SqlSession sqlSession;
 	
 	//주문조회 정보 전체 리스트 가져오기
-		public List<OrderCheckVo> selectOrderList(int no) {
-			System.out.println("orderCheckDao.selectOrderList");
-			
-			List<OrderCheckVo> ocList =sqlSession.selectList("orderlist.orderCheckList",no);
-			
-			
-			return ocList;
-		}
+	public List<OrderCheckVo> selectOrderList(int no) {
+		System.out.println("orderCheckDao.selectOrderList");
+		
+		List<OrderCheckVo> ocList =sqlSession.selectList("orderCheck.orderCheckList",no);
+		
+		
+		return ocList;
+	}
 
 }
