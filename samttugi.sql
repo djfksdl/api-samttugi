@@ -6,7 +6,7 @@ select * from product;
 select * from scategory;
 select * from users;
 
-drop table orderList;
+drop table orderlist;
 drop table cart;
 drop table product;
 drop table orders;
@@ -62,7 +62,7 @@ CREATE TABLE product (
    detail   text,
    saveName   text,
    best   int   NOT NULL,
-   CONSTRAINT product_fk FOREIGN KEY (productNo)
+   CONSTRAINT product_fk FOREIGN KEY (scNo)
    REFERENCES scategory(scNo)
 );
 
@@ -89,7 +89,7 @@ CREATE TABLE orderList (
     CONSTRAINT orderList2_fk FOREIGN KEY (productNo)
    REFERENCES product(productNo)
 );
-
+select * from mcategory;
 -- mcategory 등록
 insert into mcategory values(null, '라면/컵누들');
 insert into mcategory values(null, '카레/짜장/간편렌지');
@@ -113,3 +113,5 @@ insert into scategory values(null, 4 ,'올리브유/카놀라유/포도씨유');
 insert into scategory values(null, 5 ,'스낵');
 insert into scategory values(null, 5 ,'핫도그');
 insert into scategory values(null, 5 ,'떡볶이');
+
+select * from orderlist;
