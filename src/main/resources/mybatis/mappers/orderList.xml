@@ -5,7 +5,7 @@
    <!--  -->
    <insert id="insert" parameterType="com.javaex.vo.CartVo">
       <![CDATA[
-      	insert into orderList
+      	insert into orderlist
 		values(null, #{orderNo}, #{productNo}, #{cCount}, #{price})
       ]]>
    </insert>
