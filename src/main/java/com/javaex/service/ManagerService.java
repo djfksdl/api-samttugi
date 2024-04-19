@@ -1,6 +1,7 @@
 package com.javaex.service;
 
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -105,7 +106,7 @@ public class ManagerService {
 			System.out.println(fileSize);
 
 			// 파일전체경로
-			String filePath = saveDir + "\\" + saveName;
+			String filePath = saveDir + File.separator + saveName;
 			System.out.println(filePath);
 
 			// vo로묶기
