@@ -71,8 +71,20 @@ public class ManagerService {
 		public String exeUpload(ProductVo productVo) {
 			System.out.println("AttachService.exeUpload()");
 
-			// 파일저장디렉토리
-			String saveDir = "C:\\javaStudy\\upload";
+			// 운영 체제 이름 확인
+			String osName = System.getProperty("os.name").toLowerCase(); //운영체제가 뭔지 알 수 있음.(if문으로 리눅스면 ~,윈도우면 ~) 
+			String saveDir;
+
+			// 운영 체제에 따라 다른 경로 설정
+			if (osName.contains("linux")) {
+				System.out.println("리눅스");
+				// 파일저장디렉토리
+				saveDir = "/app/upload"; // Linux 경로. username을 실제 사용자 이름으로 변경하세요.
+			} else {
+				System.out.println("윈도우");
+				// 파일저장디렉토리
+				saveDir = "C:\\javaStudy\\upload";
+			}
 
 			// (1)파일관련 정보 추출///////////////////////////////////////////////////
 
