@@ -13,10 +13,11 @@
 	  			  ,storage
 	  			  ,best
 			from product
+			where not productName like '%[원쁠원]%'
 			
 		]]>
 	</select>
-	<!-- 카테고리 가져오기 -->
+	<!-- 이런상품 어때요? -->
 	<select id="prodcutSelectList2" resultType="com.javaex.vo.ProductVo">
 		<![CDATA[
 			select saveName
