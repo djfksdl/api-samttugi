@@ -10,7 +10,7 @@
 			        ,payment
 			        ,payDay
 			        ,request
-			        ,oderListNo
+			        ,orderListNo
 			        ,oPrice
 			        ,productName
 			        ,saveName
@@ -28,7 +28,7 @@
 			        ,payment
 			        ,payDay
 			        ,request
-			        ,oderListNo
+			        ,orderListNo
 			        ,oPrice
 			        ,productName
 			        ,saveName
