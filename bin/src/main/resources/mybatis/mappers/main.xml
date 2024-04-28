@@ -13,7 +13,38 @@
 	  			  ,storage
 	  			  ,best
 			from product
-			limit 1,5
+			where not productName like '%[원쁠원]%'
+			
+		]]>
+	</select>
+	<!-- 이런상품 어때요? -->
+	<select id="prodcutSelectList2" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			select saveName
+				  ,productNo
+				  ,detail
+	  			  ,productName
+	  			  ,price
+	  			  ,storage
+	  			  ,best
+			from product
+			where not productName like '%[원쁠원]%'
+            and productName like '%X%'
+			
+		]]>
+	</select>
+	<!-- 카테고리 가져오기 -->
+	<select id="prodcutSelectList3" resultType="com.javaex.vo.ProductVo">
+		<![CDATA[
+			select saveName
+				  ,productNo
+				  ,detail
+	  			  ,productName
+	  			  ,price
+	  			  ,storage
+	  			  ,best
+			from product where productName like '%[원쁠원]%'
+			
 		]]>
 	</select>
 </mapper>

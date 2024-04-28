@@ -10,7 +10,7 @@
             	email,
             	address
          from users 
-         where userNo = #{no}
+         where userNo = #{userNo}
       ]]>
    </select>
 
@@ -21,6 +21,13 @@
          values(null, #{id}, #{userName}, #{password}, #{hp}, #{email}, #{gender}, #{birth}, #{address})
       ]]>
    </insert>
+   
+    <!-- 아이디 중복체크 -->
+	<select id="idCheck" resultType="int" parameterType="String">
+		<![CDATA[
+			select count(id) from users where id= #{id}
+		]]>
+	</select>
 
    <!-- 로그인 -->
    <select id="selectByIdPw" resultType="com.javaex.vo.UsersVo" parameterType="com.javaex.vo.UsersVo">
@@ -56,4 +63,17 @@
          where userNo = #{userNo}
       ]]>
    </select>
+   
+   <!-- 회원정보 수정 -->
+	<update id="update" parameterType="com.javaex.vo.UsersVo">
+		<![CDATA[
+		update users
+		set
+        	password = #{password},
+        	email = #{email},
+        	hp = #{hp},
+        	address = #{address}
+		where userNo = #{userNo}
+		]]>
+	</update>
 </mapper>
